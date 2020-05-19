@@ -6,6 +6,8 @@ import com.xzh.springcloud.service.PaymentService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class PaymentServiceImpl implements PaymentService {
@@ -22,5 +24,7 @@ public class PaymentServiceImpl implements PaymentService {
     public Payment getById(Long id) {
         return this.paymentDao.getById(id);
     }
+
+
 
 }
