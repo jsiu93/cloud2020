@@ -4,7 +4,6 @@ import com.xzh.springcloud.entities.Payment;
 import com.xzh.springcloud.entities.R;
 import com.xzh.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class PaymentController {
 
-//    @Autowired
+    //    @Autowired
     private PaymentService paymentService;
 
     @Value("${server.port}")
     private String port;
+
 
     public PaymentController(PaymentService paymentService) {
         this.paymentService = paymentService;
@@ -37,7 +37,7 @@ public class PaymentController {
         Payment payment = this.paymentService.getById(id);
         if (payment != null) {
             return new R(200, "success, " + port, payment);
-        } else{
+        } else {
             return new R(444, "fail", null);
         }
     }
