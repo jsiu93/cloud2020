@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class PaymentController {
 
-    @Autowired
+//    @Autowired
     private PaymentService paymentService;
+
+    public PaymentController(PaymentService paymentService) {
+        this.paymentService = paymentService;
+    }
 
     @PostMapping("payment/create")
     public R create(@RequestBody Payment payment) {
