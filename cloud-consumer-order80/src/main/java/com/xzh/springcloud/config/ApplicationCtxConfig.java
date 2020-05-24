@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 public class ApplicationCtxConfig {
 
     @Bean
-    @LoadBalanced
+//    @LoadBalanced
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
