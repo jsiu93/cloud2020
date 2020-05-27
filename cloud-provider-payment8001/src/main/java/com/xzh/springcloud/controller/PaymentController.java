@@ -11,6 +11,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -44,6 +45,18 @@ public class PaymentController {
         } else{
             return new R(444, "fail", null);
         }
+    }
+
+    @GetMapping("payment/timeout")
+    public R timeout() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return new R(200, "success");
+
     }
 
 

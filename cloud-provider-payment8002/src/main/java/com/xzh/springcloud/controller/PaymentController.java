@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.TimeUnit;
+
 @RestController
 @Slf4j
 public class PaymentController {
@@ -46,5 +48,17 @@ public class PaymentController {
     public String getPaymentLB()
     {
         return port;
+    }
+
+    @GetMapping("payment/timeout")
+    public R timeout() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return new R(200, "success");
+
     }
 }
