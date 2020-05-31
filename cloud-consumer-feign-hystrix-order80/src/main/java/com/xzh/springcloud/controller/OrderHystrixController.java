@@ -2,7 +2,6 @@ package com.xzh.springcloud.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.xzh.springcloud.service.PaymentHystrixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +17,7 @@ public class OrderHystrixController {
 
     @GetMapping("consumer/payment/hystrix/ok/{id}")
     public String paymentInofOk(@PathVariable("id") Integer id) {
-        return paymentHystrixService.paymentInofOk(id);
+        return paymentHystrixService.paymentInfoOk(id);
     }
 
     @GetMapping("consumer/payment/hystrix/timeout/{id}")
