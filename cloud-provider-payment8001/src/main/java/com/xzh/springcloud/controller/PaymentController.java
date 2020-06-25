@@ -42,7 +42,7 @@ public class PaymentController {
         Payment payment = this.paymentService.getById(id);
         if (payment != null) {
             return new R(200, "success, " + port, payment);
-        } else{
+        } else {
             return new R(444, "fail", null);
         }
     }
@@ -58,7 +58,6 @@ public class PaymentController {
         return new R(200, "success");
 
     }
-
 
 
     @GetMapping("payment/discovery")
@@ -81,9 +80,13 @@ public class PaymentController {
 
 
     @GetMapping(value = "/payment/lb")
-    public String getPaymentLB()
-    {
+    public String getPaymentLB() {
         return port;
+    }
+
+    @GetMapping("/payment/zipkin")
+    public String paymentZipkin() {
+        return "hi ,i'am payment zipkin server fall back";
     }
 
 }
